@@ -15,15 +15,25 @@
             <h5>Customers</h5>
             <hr>
             <div class="card card-body">
-                <a href="{% url 'accounts:customer' %}" class="btn btn-primary btn-sm btn-block">
+                <a href="#" class="btn btn-primary btn-sm btn-block">
                     Create Customer
                 </a>
                 <table class="table table-sm">
                     <tr>
-                        <th></th>
                         <th>Customer</th>
-                        <th>Orders</th>
+                        <th>Phone</th>
                     </tr>
+
+                    {% for customer in customers %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'accounts:customer' customer.id %}" class="text-dark">
+                                    {{ customer.name }}
+                                </a>
+                            </td>
+                            <td>{{ customer.phone }}</td>
+                        </tr>
+                    {% endfor %}
 
                 </table>
             </div>
@@ -44,6 +54,23 @@
                         <th>Update</th>
                         <th>Remove</th>
                     </tr>
+
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.product }}</td>
+                            <td>{{ order.date_created }}</td>
+                            <td>{{ order.status }}</td>
+                            <td>
+                                <a href="#" class="btn btn-outline-info btn-sm">
+                                    Update
+                                </a>    
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    Remove
+                            </td>
+                        </tr>
+                    {% endfor %}
 
                 </table>
             </div>

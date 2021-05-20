@@ -6,5 +6,5 @@ app_name = 'accounts'
 urlpatterns = [
     path('', views.home, name="home"),
     path('products/', views.products, name="products"),
-    path('customer/', views.customer, name="customer"),
+    path('customer/<int:pk>/', views.customer, name="customer"),
 ]
