@@ -11,12 +11,12 @@ class OrderForm(forms.ModelForm):
 
         widgets = {
             'customer': forms.Select(attrs={
-                'class': 'form-control w-25',
+                'class': 'form-control',
             }),
             'product': forms.Select(attrs={
-                'class': 'form-control w-25',
+                'class': 'form-control',
             }),
             'status': forms.Select(attrs={
-                'class': 'form-control w-25',
+                'class': 'form-control',
             }),
         }

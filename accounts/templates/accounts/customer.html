@@ -15,8 +15,8 @@
                 <a href="#" class="btn btn-outline-info btn-sm btn-block">
                     Update Customer
                 </a>
-                <a href="#" class="btn btn-outline-danger btn-sm btn-block">
-                    Delete Customer
+                <a href="{% url 'accounts:create_order' customer.id %}" class="btn btn-outline-primary btn-sm btn-block">
+                    Place Order
                 </a>
             </div>
             <div class="card card-body"></div>
@@ -45,7 +45,8 @@
     <div class="row">
         <div class="col">
             <div class="card card-body">
-                <form action="get">
+                <form method="get">
+                    {{ myfilter.form }}
                     <button class="btn btn-primary btn-sm">Search</button>
                 </form>
             </div>
@@ -60,7 +61,7 @@
                 <table class="table table-sm">
                     <tr>
                         <th>Product</th>
-                        <th>Category</th>
+                        <th>Note</th>
                         <th>Date Ordered</th>
                         <th>Status</th>
                         <th>Update</th>
@@ -70,7 +71,7 @@
                     {% for order in orders %}
                         <tr>
                             <td>{{ order.product }}</td>
-                            <td>{{ order.product.category }}</td>
+                            <td>{{ order.note }}</td>
                             <td>{{ order.date_created }}</td>
                             <td>{{ order.status }}</td>
                             <td>
