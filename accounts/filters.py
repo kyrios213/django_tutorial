@@ -1,5 +1,6 @@
 import django_filters
 from django_filters import DateFilter, CharFilter
+from django import forms
 
 from .models import *
 
@@ -11,3 +12,4 @@ class OrderFilter(django_filters.FilterSet):
         model = Order
         fields = '__all__'
         exclude = ['customer', 'date_created']
+
