@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ user|capfirst }} - Profile{% endblock %}
+
+{% block content %}
+
+<section class="container-fluid">
+    {% include 'accounts/status.html' %}
+
+    <h1>User Profile</h1>
+</section>
+
+{% endblock %}
