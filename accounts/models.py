@@ -1,14 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=255, null=True)
     phone = models.CharField(max_length=255, null=True)
     email = models.EmailField(max_length=255, null=True)
+    profile_pic = models.ImageField(null=True, blank=True, upload_to='profile/')
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return self.user.username
 
 
 class Tag(models.Model):
