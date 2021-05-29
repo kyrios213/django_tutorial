@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#q_m6t3xkkku)b@*jeku8dfcvwzjkew1b$5j0bhzo1s)z+x6xp'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'demo_1',
         'USER':'kyrios213',
-        'PASSWORD': 'myrootpass213',
+        'PASSWORD': config('PASSWORD'),
         'HOST': 'database-1.czelvycj760q.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
@@ -142,4 +143,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'lancepidor112@gmail.com'
-EMAIL_HOST_PASSWORD = 'pringles213'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
