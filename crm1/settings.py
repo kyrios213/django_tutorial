@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['kyrios-crm1.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['crm1-kyrios.herokuapp.com', 'localhost']
 
 
 # Application definition
